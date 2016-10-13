@@ -1,0 +1,125 @@
+<template>
+  <style>
+    #library-articles, #library-books, #library-videos, #library-slides {
+      min-height: 500px;
+    }
+
+    section > .row {
+      padding-top: 100px; padding-bottom: 100px;
+    }
+
+    .text-large {
+      font-size: 200%;
+    }
+
+    .callout p {
+      line-height: 1.2;
+    }
+
+  </style>
+  <require from="../subscribe" as="subscribe-section"></require>
+
+  <link rel="stylesheet" href="static/css/cryptographix.css">
+
+  <section id="main" class="row expanded">
+    <div style="height: 240px; background: url('static/images/sections/library/library_banner.jpg') center">
+      <p class="text-center text-white" style="font-size: 3rem; padding-top: 100px; line-height: 1">
+        WELCOME TO CRYPTO<b>LIBRARY</b>
+      </p>
+      <p class="text-center text-larger text-white" style="line-height: 1; ">
+
+      </p>
+    </div>
+    <div class="menu-centered bg-cgx-rose" style="height: 40px; font-size: 90%; padding-top: 2px;">
+      <ul class="menu hide-for-small " style="text-transform: uppercase">
+        <li><a href="library#library-articles">Articles</a></li>
+        <li><a href="library#library-books">Books</a></li>
+        <li><a href="library#library-videos">Videos</a></li>
+        <li><a href="library#library-slides">Slides</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="callout" class="row expanded bg-cgx-light-grey" style="; min-height: 250px;">
+    <div class="large-6 large-centered columns">
+      <p class="text-center text-cgx-dark-grey text-large" style="padding-top: 100px; xline-height: 1">
+        Library <br/>
+      </p>
+
+      <div class="text-center"><img src="static/images/sections/library/icon_library_soon.png" style="padding-top: 50px;"/></div>
+
+      <p class="text-center text-larger text-cgx-dark-grey" style="xline-height: 1; padding-top: 40px;">
+
+      </p>
+
+      <p class="text-center text-larger text-cgx-dark-grey" style="xline-height: 1; padding-bottom: 100px;">
+
+      </p>
+    </div>
+  </section>
+
+  <section id="library-articles" class="bg-cgx-dark-blue">
+    <div class="row">
+      <div class="large-6 columns">
+        <div class="text-center"><img src="static/images/sections/library/articles_library.png" style="padding-top: 50px; height: 250px"/></div>
+      </div>
+      <div class="large-5 columns end">
+        <p class="text-left text-larger text-white" style="font-size: 200%">
+          Articles<br/>
+        </p>
+        <p class="text-left text-larger text-white" style="line-height: 1.4;">
+
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="library-books" class="bg-cgx-light-grey">
+    <div class="row">
+      <div class="large-5 columns large-push-1">
+        <p class="text-right text-larger text-cgx-dark-grey" style="font-size: 200%">
+          Books<br/>
+        </p>
+        <p class="text-right text-larger text-cgx-dark-grey" style="line-height: 1.4;">
+
+        </p>
+      </div>
+      <div class="large-6 columns">
+        <div class="text-center"><img src="static/images/sections/library/books_library.png" style="padding-top: 50px; height: 250px"/></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="library-videos" class="bg-cgx-rose">
+    <div class="row">
+      <div class="large-6 columns">
+        <div class="text-center"><img src="static/images/sections/library/videos_library.png" style="padding-top: 50px; height: 250px"/></div>
+      </div>
+      <div class="large-5 columns end">
+        <p class="text-left text-larger text-white" style="font-size: 200%">
+          Videos<br/>
+        </p>
+        <p class="text-left text-larger text-white" style="line-height: 1.4;">
+
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="library-slides" class="bg-cgx-light-grey"">
+    <div class="row">
+      <div class="large-5 columns large-push-1">
+        <p class="text-right text-larger text-cgx-dark-grey" style="font-size: 200%">
+          Slides and Presentations<br/>
+        </p>
+        <p class="text-right text-larger text-cgx-dark-grey" style="line-height: 1.4;">
+        </p>
+      </div>
+      <div class="large-6 columns">
+        <div class="text-center"><img src="static/images/sections/library/slides_library.png" style="padding-top: 50px; height: 250px"/></div>
+      </div>
+    </div>
+  </section>
+
+  <subscribe></subscribe>
+</template>

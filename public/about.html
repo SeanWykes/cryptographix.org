@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<require from="./body"></require>
+<head>
+  <base href="/">
+
+  <title>CryptoGraphix</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="static/css/foundation.css">
+  <link rel="stylesheet" href="static/css/cryptographix.css">
+</head>
+
+<script src="static/js/vendor/jquery.js"></script>
+<require from="./page-header.html"></require>
+<require from="./page-footer.html"></require>
+<body>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none;">
+    <defs>
+      <symbol id="bell" viewbox="0 0 24 24">
+        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+      </symbol>
+      <symbol id="feed" viewbox="0 0 24 24">
+        <g>
+          <path d="M18.54,8.811h-4.123c-0.497,0-0.9-0.403-0.9-0.9s0.403-0.9,0.9-0.9h4.123c0.497,0,0.9,0.403,0.9,0.9 S19.037,8.811,18.54,8.811z"/>
+          <path d="M18.54,12.781h-4.123c-0.497,0-0.9-0.403-0.9-0.9s0.403-0.9,0.9-0.9h4.123c0.497,0,0.9,0.403,0.9,0.9 S19.037,12.781,18.54,12.781z"/>
+          <path d="M18.54,16.751H5.459c-0.497,0-0.9-0.403-0.9-0.9s0.403-0.9,0.9-0.9H18.54c0.497,0,0.9,0.403,0.9,0.9 S19.037,16.751,18.54,16.751z"/>
+          <path d="M11.337,13.077H5.459c-0.497,0-0.9-0.403-0.9-0.9V7.911c0-0.497,0.403-0.9,0.9-0.9h5.878c0.497,0,0.9,0.403,0.9,0.9v4.266 C12.237,12.674,11.834,13.077,11.337,13.077z M6.359,11.277h4.078V8.811H6.359V11.277z"/>
+          <path d="M22,20.59H2c-0.497,0-0.9-0.403-0.9-0.9V4.311c0-0.497,0.403-0.9,0.9-0.9h20c0.497,0,0.9,0.403,0.9,0.9v15.379 C22.9,20.187,22.497,20.59,22,20.59z M2.9,18.789h18.2V5.21H2.9V18.789z"/>
+        </g>
+      </symbol>
+      <symbol id="earth" viewbox="0 0 24 24">
+        <path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+      </symbol>
+      <symbol id="trophy" viewbox="0 0 24 24">
+        <path d="M20.2,2H19.5H18C17.1,2 16,3 16,4H8C8,3 6.9,2 6,2H4.5H3.8H2V11C2,12 3,13 4,13H6.2C6.6,15 7.9,16.7 11,17V19.1C8.8,19.3 8,20.4 8,21.7V22H16V21.7C16,20.4 15.2,19.3 13,19.1V17C16.1,16.7 17.4,15 17.8,13H20C21,13 22,12 22,11V2H20.2M4,11V4H6V6V11C5.1,11 4.3,11 4,11M20,11C19.7,11 18.9,11 18,11V6V4H20V11Z"/>
+      </symbol>
+      <symbol id="ama" viewbox="0 0 24 24">
+        <g>
+          <path d="M20.944,2H3.172C2.544,2,2,2.667,2,3.296v17.562C2,21.485,2.544,22,3.173,22H21.02c0.628,0,0.98-0.515,0.98-1.143V3.296 C22,2.667,21.572,2,20.944,2z M19.714,19.714H4.286V4.286h15.428V19.714z"/>
+          <path d="M12.097,14.02l2.539,1.533l-0.674-2.889l2.244-1.945l-2.955-0.255l-1.154-2.721l-1.154,2.721l-2.956,0.255l2.24,1.945 l-0.67,2.889L12.097,14.02z"/>
+        </g>
+      </symbol>
+      <symbol id="ama-slim" viewbox="0 0 24 24">
+        <path d="M20.943,2.5H3.172C2.852,2.5,2.5,2.917,2.5,3.296v17.562C2.5,21.2,2.814,21.5,3.173,21.5H21.02 c0.446,0,0.48-0.492,0.48-0.643V3.296C21.5,2.92,21.262,2.5,20.943,2.5z M20.214,20.214H3.786V3.786h16.428V20.214z"/>
+        <polygon points="14.985,11.115 12.908,10.936 12.097,9.023 11.286,10.936 9.206,11.115 10.782,12.484 10.312,14.514 12.097,13.436 13.88,14.512 13.406,12.484 "/>
+      </symbol>
+      <symbol id="nodes" viewbox="0 0 24 24">
+        <g>
+        	<path d="M12.232,16.187c0,2.825-2.291,5.116-5.117,5.116C4.291,21.303,2,19.012,2,16.187s2.291-5.116,5.115-5.116 C9.941,11.071,12.232,13.361,12.232,16.187z"/>
+        	<g>
+        		<path d="M11.915,2.698c-2.825,0-5.116,2.291-5.116,5.116c0,0.276,0.023,0.55,0.064,0.815c0.084-0.003,0.168-0.012,0.252-0.012 c1.86,0,3.564,0.678,4.885,1.796c1.319-1.118,3.021-1.796,4.882-1.796c0.026,0,0.053,0.004,0.08,0.004 c0.041-0.264,0.068-0.531,0.068-0.807C17.031,4.989,14.741,2.698,11.915,2.698z"/>
+        	</g>
+        	<g>
+        		<path d="M16.883,11.071c-1.257,0-2.407,0.454-3.298,1.207c0.694,1.143,1.1,2.478,1.1,3.909c0,1.431-0.405,2.765-1.1,3.907 c0.891,0.754,2.041,1.208,3.298,1.208c2.826,0,5.117-2.291,5.117-5.116C22,13.359,19.709,11.071,16.883,11.071z"/>
+        	</g>
+        </g>
+      </symbol>
+      <symbol id="menu" viewbox="0 0 24 24">
+          <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
+      </symbol>
+      <symbol id="facebook" viewbox="0 0 20 20">
+          <path d="M6.865,7.8h1.343V6.495c0-0.576,0.016-1.465,0.433-2.016c0.44-0.58,1.046-0.978,2.087-0.978 c1.695,0,2.408,0.241,2.408,0.241l-0.336,1.991c0,0-0.559-0.16-1.082-0.16c-0.521,0-0.99,0.187-0.99,0.708V7.8h2.142l-0.148,1.944 h-1.994v6.753h-2.52V9.745H6.865V7.8z"/>
+      </symbol>
+      <symbol id="github" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10,3.528c-3.665,0-6.636,2.972-6.636,6.637c0,2.931,1.9,5.418,4.539,6.295 c0.331,0.062,0.452-0.144,0.452-0.319c0-0.157-0.007-0.575-0.009-1.129c-1.846,0.401-2.236-0.89-2.236-0.89 c-0.302-0.766-0.736-0.971-0.736-0.971C4.771,12.74,5.42,12.748,5.42,12.748c0.665,0.047,1.017,0.684,1.017,0.684 c0.592,1.015,1.553,0.722,1.931,0.552c0.06-0.429,0.231-0.722,0.422-0.888c-1.474-0.167-3.022-0.736-3.022-3.279 c0-0.725,0.258-1.316,0.682-1.78C6.382,7.869,6.153,7.194,6.514,6.281c0,0,0.558-0.18,1.825,0.68C8.868,6.814,9.436,6.74,10,6.738 c0.564,0.002,1.131,0.076,1.662,0.223c1.267-0.859,1.823-0.68,1.823-0.68c0.361,0.913,0.133,1.588,0.066,1.756 c0.424,0.464,0.681,1.056,0.681,1.78c0,2.549-1.552,3.11-3.03,3.274c0.238,0.205,0.451,0.61,0.451,1.229 c0,0.887-0.008,1.603-0.008,1.82c0,0.178,0.119,0.384,0.455,0.319c2.635-0.88,4.535-3.365,4.535-6.295 C16.636,6.5,13.665,3.528,10,3.528z"/>
+      </symbol>
+      <symbol id="google" viewbox="0 0 20 20">
+          <g>
+              <path d="M6.462,8.776v2.445c0,0,2.367-0.003,3.332-0.003c-0.522,1.585-1.334,2.448-3.332,2.448c-2.021,0-3.6-1.643-3.6-3.667 c0-2.026,1.578-3.667,3.6-3.667c1.068,0,1.76,0.376,2.393,0.9c0.507-0.508,0.465-0.58,1.754-1.801 c-1.094-0.997-2.55-1.605-4.146-1.605C3.06,3.827,0.3,6.59,0.3,10c0,3.409,2.76,6.173,6.162,6.173c5.086,0,6.33-4.438,5.918-7.396 H6.462z"/>
+              <polygon points="17.565,8.899 17.565,6.761 16.04,6.761 16.04,8.899 13.843,8.899 13.843,10.428 16.04,10.428 16.04,12.628  17.565,12.628 17.565,10.428 19.7,10.428 19.7,8.899 	"/>
+          </g>
+      </symbol>
+      <symbol id="linkedin" viewbox="0 0 20 20">
+          <path d="M6.022,16.531H3.249V7.658h2.773V16.531z M4.566,6.546H4.543c-1,0-1.65-0.678-1.65-1.539c0-0.873,0.67-1.539,1.692-1.539 c1.021,0,1.649,0.664,1.669,1.537C6.254,5.867,5.606,6.546,4.566,6.546z M17.107,16.531h-3.143v-4.592 c0-1.203-0.49-2.022-1.572-2.022c-0.826,0-1.285,0.553-1.499,1.088c-0.081,0.189-0.069,0.455-0.069,0.725v4.801H7.713 c0,0,0.041-8.135,0-8.874h3.111V9.05c0.183-0.609,1.179-1.478,2.765-1.478c1.971,0,3.518,1.274,3.518,4.023V16.531z"/>
+      </symbol>
+      <symbol id="twitter" viewbox="0 0 20 20">
+          <path d="M17.552,5.315c-0.558,0.247-1.153,0.413-1.78,0.488c0.641-0.384,1.132-0.989,1.362-1.713 c-0.599,0.354-1.261,0.612-1.968,0.751c-0.564-0.603-1.371-0.979-2.262-0.979c-1.711,0-3.098,1.387-3.098,3.099 c0,0.242,0.026,0.479,0.08,0.705C7.312,7.538,5.029,6.305,3.5,4.429c-0.268,0.46-0.42,0.991-0.42,1.56 c0,1.074,0.548,2.022,1.379,2.579C3.952,8.552,3.473,8.411,3.055,8.18v0.038c0,1.503,1.068,2.755,2.486,3.038 c-0.26,0.072-0.533,0.109-0.816,0.109c-0.199,0-0.395-0.019-0.583-0.055c0.394,1.23,1.538,2.128,2.894,2.151 c-1.06,0.831-2.396,1.326-3.847,1.326c-0.25,0-0.497-0.015-0.74-0.044c1.372,0.88,3.001,1.393,4.749,1.393 c5.701,0,8.817-4.721,8.817-8.815c0-0.135-0.003-0.27-0.009-0.401C16.611,6.483,17.138,5.938,17.552,5.315"/>
+      </symbol>
+    </defs>
+  </svg>
+  <link rel="stylesheet" href="static/css/cryptographix.css">
+  <div class="body-container">
+    
+<header class="header min-header non-logged-in">
+  <div class="row">
+    <div class="medium-4 small-12 columns">
+      <a href="/" title="Cryptographix Home" class="logo" style="width: 148px; padding-top: 2px;">
+        <img src="static/images/logo/logo_header_explore.png">
+      </a>
+    </div>
+    <div class="medium-8 small-12 header-actions columns">
+      <div class="login-component" style="display: none">
+        <a href="/auth/github" class="main-login-button">
+          <i class="mdi mdi-github-circle"></i>
+            Sign in with GitHub
+        </a>
+        <a href="#" class="more-option">
+          <i class="mdi mdi-chevron-down"></i>
+        </a>
+      </div>
+
+      <ul class="inline-list header-links right">
+        <li class="search-icon-holder" style="display: none"><a class="mobilesearch" href="#"><i class="mdi mdi-magnify"></i></a></li>
+        <li id="notification-icon" class="notification-icon-holder">
+          <a href="/notifications">
+            <svg class="" x="0" y="0" viewbox="0 0 24 24">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell"/>
+            </svg>
+          </a>
+          <div class="notifications-dropdown" style="display: none">
+            <div class="notif-header"><a class="mark-read" href="#"><i class="mdi mdi-read"></i></a>
+              <p>Notifications</p>
+            </div>
+            <div class="notif-container ps-container" data-ps-id="c12aefaf-d674-c311-2830-b57bf713dcea">
+              <div class="no-notification-div">
+                <div class="content-wrapper"><i class="mdi mdi-bell-off"></i>
+                  <p>You don&apos;t have any notifications yet.</p>
+                </div>
+              </div>
+              <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+              </div>
+              <div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;">
+                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+              </div>
+            </div>
+            <a href="#" class="all-notif-link">
+              All notifications
+              <i class="mdi mdi-chevron-right"></i></a>
+          </div>
+
+        </li>
+        <li class="profile-actions">
+          <a href="/@CryptoGraphix" class="profile-photo"><img src="" class=""></a>
+          <div class="profile-drawer" style="display: none">
+            <ul>
+              <li class="name underline">
+                <a href="/@CryptoGraphix">
+                  Sean Michael Wykes
+                  <small>View Profile</small></a>
+              </li>
+              <li><a href="/@CryptoGraphix/collections">My collections</a></li>
+              <li class="underline"><a href="/@CryptoGraphix/stories">My stories</a></li>
+              <li><a href="/@CryptoGraphix/activities">Recent activities</a></li>
+              <li><a href="/@CryptoGraphix/settings">Settings</a></li>
+              <li><a href="/auth/logout">Sign out</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <div class="input-wrapper right" style="display: none">
+        <i class="search-icon mdi mdi-magnify"></i>
+        <input type="text" class="search-box" placeholder="Search Cryptographix">
+      </div>
+
+      <div class="main-nav-wrap">
+        <ul class="main-nav" style="text-transform: uppercase">
+          <li><a class="" href="/about">About</a></li>
+          <li><a class="" href="/explore">Explore</a></li>
+          <li><a class="" href="/school">School</a></li>
+          <li><a class="" href="/laboratory">Laboratory</a></li>
+          <li><a class="" href="/library">Library</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <nav class="top-bar" data-topbar="true" role="navigation" style="display: none">
+    <section class="top-bar-section">
+      <ul class="right">
+        <li>
+          <a href="/about">
+            <svg class="left-nav-icons" x="0" y="0" viewbox="0 0 24 24">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#about"/>
+            </svg>
+            About
+          </a>
+        </li>
+        <li>
+          <a href="/explore" class="">
+            <svg class="left-nav-icons" x="0" y="0" viewbox="0 0 24 24">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#explore"/>
+            </svg>
+            Explore
+          </a>
+        </li>
+        <li>
+          <a href="/school">
+            <svg class="left-nav-icons" x="0" y="0" viewbox="0 0 24 24">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#school"/>
+            </svg>
+            School
+          </a>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</header>
+
+    
+  <style>
+    .about-page .row {
+      margin-top: 60px;
+      margin-bottom: 60px;
+      background-color: #CCC;
+    }
+
+    .about-page .row:nth-of-type(even) {
+      background-color: #884;
+    }
+
+    .content-area .subnav li a {
+      color: #6Af456;
+    }
+  </style>
+  <div class="content-area static-page">
+    <section class="hero-section about-bg" style="flex-direction: column">
+      <div class="hero-content">
+        <p class="border-tag">Cryptographix decrypted</p>
+        <h2>Informing and training developers, helping them to build a secure world</h2>
+      </div>
+      <ul class="subnav hide-for-small" style="xmargin-top: 20px; ">
+        <li><a href="about#about-mission">Mission</a></li>
+        <li><a href="about#about-why">Motivation</a></li>
+        <li><a href="about#about-team">Team</a></li>
+      </ul>
+      </section>
+    <section id="about-mission" class="section-wrap">
+      <div class="section-row content-wrap">
+        <div class="text-wrap">
+          <h3 class="section-title">Our mission</h3>
+          <p class="subtitle">
+            Our mission at Cryptographix is to help software engineers get better at the art of designing and building secure software.
+            <!--One of the best ways to do so is to learn from other developers. find informationconnect with developers from around
+            the world, engage in discussions and know what&apos;s happening in the world of secure software development.-->
+            CryptoGraphix aims to makes it easy to find quality knowledge and resources for all levels of developer - from apprentice to expert.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="about-why" class="section-wrap highlight">
+      <div class="section-row content-wrap">
+        <div class="text-wrap">
+          <h3 class="section-title">Why we&apos;re building CryptoGraphix</h3>
+          <p style="xfont-size: 1.125em;">
+            After more than 20 years working with secure applications, our co-founder and president, Sean Michael Wykes, realized that software engineers urgently needed to get better at the art of designing and building secure software.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="about-team" class="section-wrap">
+      <div class="section-row content-wrap">
+        <div class="text-wrap">
+          <h3 class="section-title">The Cryptographix Team</h3>
+          <p class="subtitle">We are a small team of dedicated, experienced and enthusiastic professionals.</p>
+        </div>
+        <div class="feat-wrap">
+          <div class="prof-block">
+            <a href="/@seanwykes" target="_blank" class="prof-cover" style="background-image: url(&quot;https://static.cryptographix.org/assets/users/@seanwykes/user.jpg&quot;);"></a>
+            <a href="/@seanwykes" target="_blank" class="prof-img"><img src="https://static.cryptographix.org/assets/assets/users/@seanwykes/user.jpg"></a>
+            <div class="prof-info"><a class="name" href="/@seanwykes" target="_blank">Sean Wykes</a>
+              <p class="tagline">Founder</p>
+              <ul class="soc-links list-unstyled">
+                <li><a href="/@seanwykes" target="_blank">@seanwykes</a></li>
+                <li class="middot">
+                  <p>&#xB7;</p>
+                </li>
+                <li>
+                  <a class="twitter" target="_blank" href="http://twitter.com/alkshendra_26">
+                    <i class="mdi mdi-twitter"></i></a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+          <div class="prof-block">
+            <a href="/@jairotondin" target="_blank" class="prof-cover" style="background-image: url(&quot;https://static.cryptographix.org/assets/users/@jairotondin/user.jpg&quot;);"></a>
+            <a class="prof-img" target="_blank" href="/@jairotondin"><img src="https://static.cryptographix.org/assets/users/@jairotondin/user.jpg"></a>
+            <div class="prof-info"><a class="name" target="_blank" href="/@jairotondin">Jairo Tondin</a>
+              <p class="tagline">Technical</p>
+              <ul class="soc-links list-unstyled">
+                <li><a href="/@jairotondin" target="_blank">@jairotondin</a></li>
+                <li class="middot">
+                  <p>&#xB7;</p>
+                </li>
+                <li><a class="twitter" target="_blank" href="http://twitter.com/Sandeepg33k"><i class="mdi mdi-twitter"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="prof-block">
+            <a href="/@flaviocotta" target="_blank" class="prof-cover" style="background-image: url(&quot;https://static.cryptographix.org/assets/users/@flaviocotta/user.jpg&quot;);"></a>
+            <a class="prof-img" target="_blank" href="/@flaviocotta"><img src="https://static.cryptographix.org/assets/users/@flaviocotta/user.jpg"></a>
+            <div class="prof-info"><a class="name" target="_blank" href="/@flaviocotta">Flavio Cotta</a>
+              <p class="tagline">Design</p>
+              <ul class="soc-links list-unstyled">
+                <li><a href="/@flaviocotta" target="_blank">@flaviocotta</a></li>
+                <li class="middot">
+                  <p>&#xB7;</p>
+                </li>
+                <li><a class="twitter" target="_blank" href="http://twitter.com/flaviocotta"><i class="mdi mdi-twitter"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="prof-block">
+            <a href="/@thiagolo" target="_blank" class="prof-cover" style="background-image: url(&quot;https://static.cryptographix.org/assets/users/@thiagolo/user.jpg&quot;);"></a>
+            <a class="prof-img" target="_blank" href="/@thiagolo"><img src="https://static.cryptographix.org/assets/users/@thiagolo/user.jpg"></a>
+            <div class="prof-info"><a class="name" target="_blank" href="/@thiagolo">Thiago Lo</a>
+              <p class="tagline">Engineering</p>
+              <ul class="soc-links list-unstyled">
+                <li><a href="/@thiagolo" target="_blank">@thiagolo</a></li>
+                <li class="middot">
+                  <p>&#xB7;</p>
+                </li>
+                <li><a class="twitter" target="_blank" href="http://twitter.com/_saikishore"><i class="mdi mdi-twitter"></i></a></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div></section>
+  </div>
+  <script>
+  var navEl = $('.main-nav li a');
+  navEl.removeClass('active')
+    .eq(1).addClass('active');
+  </script>
+
+    
+  <style>
+    footer .inline-list li>a {
+      color: #585E5C;
+      padding: 2px;
+      border: 1px solid transparent;
+      text-transform: uppercase;
+    }
+  </style>
+<footer class="bg-white" style="height: 55px">
+  <div class="footer-wrap">
+    <ul class="inline-list">
+      <li>
+        <p>
+          &#xA9; 2016 Cryptographix
+          <!--a target="_blank" href="http://nascent.com.br">Nascent Technology Consultants Ltd.</a-->
+        </p>
+      </li>
+      <li><a target="_blank" href="/about">About</a></li>
+      <li><a target="_blank" href="/privacy">Privacy</a></li>
+      <li><a target="_blank" href="/terms">Terms</a></li>
+      <li><a target="_blank" href="/privacy" style="border: 1px solid #585E5C; border-radius: 3px; padding: 2px 7px;">Contact</a></li>
+    </ul>
+    <ul class="social-icons inline-list">
+      <li>
+        <a class="tw" target="_blank" href="https://twitter.com/crypto_graphix">
+          <svg viewbox="0 0 20 20">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="gh" target="_blank" href="https://github.com/cryptographix">
+          <svg viewbox="0 0 20 20">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="ig" target="_blank" href="https://www.linkedin.com/company/cryptographix">
+          <svg viewbox="0 0 20 20">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="gp" target="_blank" href="https://plus.google.com/+CryptoGraphix">
+          <svg viewbox="0 0 20 20">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#google"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="fb" target="_blank" href="https://facebook.com/cryptographix">
+          <svg viewbox="0 0 20 20">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+  </div>
+</body>
+
+</html>
+

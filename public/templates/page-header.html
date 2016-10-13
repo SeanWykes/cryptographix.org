@@ -1,0 +1,118 @@
+<template>
+<header class="header min-header non-logged-in">
+  <div class="row" >
+    <div class="medium-4 small-12 columns">
+      <a href="/" title="Cryptographix Home" class="logo" style="width: 148px; padding-top: 2px;">
+        <img src="static/images/logo/logo_header_explore.png">
+      </a>
+    </div>
+    <div class="medium-8 small-12 header-actions columns">
+      <div class="login-component"  style="display: none">
+        <a href="/auth/github" class="main-login-button" >
+          <i class="mdi mdi-github-circle" ></i>
+            Sign in with GitHub
+        </a>
+        <a href="#" class="more-option" >
+          <i class="mdi mdi-chevron-down" ></i>
+        </a>
+      </div>
+
+      <ul class="inline-list header-links right" >
+        <li class="search-icon-holder"  style="display: none"><a class="mobilesearch" href="#" ><i class="mdi mdi-magnify" ></i></a></li>
+        <li id="notification-icon" class="notification-icon-holder" >
+          <a href="/notifications" >
+            <svg class="" x="0" y="0" viewBox="0 0 24 24" >
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell" ></use>
+            </svg>
+          </a>
+          <div class="notifications-dropdown" style="display: none">
+            <div class="notif-header"><a class="mark-read" href="#"><i class="mdi mdi-read"></i></a>
+              <p>Notifications</p>
+            </div>
+            <div class="notif-container ps-container" data-ps-id="c12aefaf-d674-c311-2830-b57bf713dcea">
+              <div class="no-notification-div">
+                <div class="content-wrapper"><i class="mdi mdi-bell-off"></i>
+                  <p>You don't have any notifications yet.</p>
+                </div>
+              </div>
+              <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+              </div>
+              <div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;">
+                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+              </div>
+            </div>
+            <a href="#" class="all-notif-link">
+              All notifications
+              <i class="mdi mdi-chevron-right"></i></a>
+          </div>
+
+        </li>
+        <li class="profile-actions">
+          <a href="/@CryptoGraphix" class="profile-photo" ><img src="" class="" ></a>
+          <div class="profile-drawer" style="display: none">
+            <ul>
+              <li class="name underline">
+                <a href="/@CryptoGraphix">
+                  Sean Michael Wykes
+                  <small>View Profile</small></a>
+              </li>
+              <li><a href="/@CryptoGraphix/collections">My collections</a></li>
+              <li class="underline"><a href="/@CryptoGraphix/stories">My stories</a></li>
+              <li><a href="/@CryptoGraphix/activities">Recent activities</a></li>
+              <li><a href="/@CryptoGraphix/settings">Settings</a></li>
+              <li><a href="/auth/logout">Sign out</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <div class="input-wrapper right"  style="display: none">
+        <i class="search-icon mdi mdi-magnify"></i>
+        <input type="text" class="search-box" placeholder="Search Cryptographix">
+      </div>
+
+      <div class="main-nav-wrap">
+        <ul class="main-nav" style="text-transform: uppercase">
+          <li><a class="" href="/about">About</a></li>
+          <li><a class="" href="/explore">Explore</a></li>
+          <li><a class="" href="/school">School</a></li>
+          <li><a class="" href="/laboratory">Laboratory</a></li>
+          <li><a class="" href="/library">Library</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <nav class="top-bar" data-topbar="true" role="navigation" style="display: none">
+    <section class="top-bar-section">
+      <ul class="right">
+        <li>
+          <a href="/about">
+            <svg class="left-nav-icons" x="0" y="0" viewBox="0 0 24 24">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#about"></use>
+            </svg>
+            About
+          </a>
+        </li>
+        <li>
+          <a href="/explore" class="">
+            <svg class="left-nav-icons" x="0" y="0" viewBox="0 0 24 24">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#explore"></use>
+            </svg>
+            Explore
+          </a>
+        </li>
+        <li>
+          <a href="/school">
+            <svg class="left-nav-icons" x="0" y="0" viewBox="0 0 24 24">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#school"></use>
+            </svg>
+            School
+          </a>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</header>
+</template>

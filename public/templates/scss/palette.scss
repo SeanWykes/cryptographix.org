@@ -1,0 +1,113 @@
+/**
+* Typography
+*/
+
+/**
+* Base Font: Titillium Web
+*
+* <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+*/
+
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Titillium Web'), local('TitilliumWeb-Regular'),
+       url(../fonts/7XUFZ5tgS-tD6QamInJTceHuglUR2dhBxWD-q_ehMME.woff2) format('woff2'),
+       url(https://fonts.gstatic.com/s/titilliumweb/v4/7XUFZ5tgS-tD6QamInJTceHuglUR2dhBxWD-q_ehMME.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Titillium Web'), local('TitilliumWeb-Regular'),
+        url(../fonts/7XUFZ5tgS-tD6QamInJTcSGR3J8a2Jm30YJvJ3tIMOY.woff2) format('woff2'),
+       url(https://fonts.gstatic.com/s/titilliumweb/v4/7XUFZ5tgS-tD6QamInJTcSGR3J8a2Jm30YJvJ3tIMOY.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+body, a, span, div, h1, h2, h3, h4 {
+  font-family: "Titillium Web", NeoSans;
+}
+
+/**
+* Colors
+*/
+$cgx-rose: #ac57a0; // LIBRARY
+
+$cgx-dark-blue: #0E1331; // BG
+$cgx-med-blue: #4152A3; // LAB
+$cgx-light-blue: #3BB5D3; // SCHOOL
+
+$cgx-dark-grey: #585E5C;
+$cgx-light-grey: #F1F2F2;
+
+$cgx-mustard: #D9BB25; // EXPLORE
+
+$white: #FFFFFF;
+
+.bg-cgx-rose {
+  background-color: $cgx-rose;
+}
+.bg-cgx-dark-blue {
+  background-color: $cgx-dark-blue;
+}
+.bg-cgx-med-blue {
+  background-color: $cgx-med-blue;
+}
+.bg-cgx-light-grey {
+  background-color: $cgx-light-grey;
+}
+.bg-white {
+  background-color: $white;
+}
+
+
+.text-white {
+  color: $white;
+}
+.text-cgx-dark-grey {
+  color: $cgx-dark-grey;
+}
+.text-cgx-mustard {
+  color: $cgx-mustard;
+}
+.text-cgx-dark-blue {
+  color: $cgx-dark-blue;
+}
+.text-cgx-med-blue {
+  color: $cgx-med-blue;
+}
+.text-cgx-light-blue {
+  color: $cgx-light-blue;
+}
+.text-cgx-rose {
+  color: $cgx-rose;
+}
+
+.text-larger {
+    font-size: 110%;
+}
+.menu a {
+  color: $white;
+}
+
+
+/*
+  @font-face {
+      font-family: NeoSans;
+      src: url('static/fonts/Neo Sans Std Regular.otf');
+  }
+  @font-face {
+      font-family: NeoSans;
+      src: url('static/fonts/Neo Sans Std Light.otf');
+      font-weight: 100;
+  }
+  @font-face {
+      font-family: NeoSans;
+      src: url('static/fonts/Neo Sans Std Bold.otf');
+      font-weight: bold;
+  }*/
