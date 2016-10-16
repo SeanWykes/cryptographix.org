@@ -25,9 +25,10 @@ if ( env == 'development' ) {
 
 // Mount public as '/'
 app.use( express.static(__dirname + '/../public') );
+console.log( __dirname + '/../public' );
 
 app.get( '/',  (req, resp, done) => {
-  resp.redirect( '/public/landing.html' );
+  resp.redirect( '/landing.html' );
 } );
 
 let trackerPNG = fs.readFileSync('public/static/images/1x1.png' );
@@ -126,21 +127,28 @@ app.post( '/api/subscribe', (req, resp, done) => {
     id: cuid()
   };
 
-  fs.appendFile('subscribers.txt', JSON.stringify( info )+',\n', function (err) {
-    sendMail( "", info, (err) => {
-      if ( !err ) {
-        resp.status(200).json({success: "Email sent"});
-      } else {
-        resp.status(500).json({message: "Unable to send email:", error: err });
-      }
+  if ( req.get('Authorization') == 'Bearer ' + 'ZTBUqwQTokTXRhOJcNQN6UCy4ZJ/rwqyueLU5lELqMY=' ) {
+    fs.appendFile('subscribers.txt', JSON.stringify( info )+',\n', function (err) {
+      sendMail( "", info, (err) => {
+        if ( !err ) {
+          resp.status(200).json({success: "Email sent"});
+        } else {
+          resp.status(500).json({message: "Unable to send email:", error: err });
+        }
 
-      done();
-    } )
-  });
+        done();
+      } )
+    });
+  } 
+  else {
+    resp.status(401).json({message: "Unable to authorize"});
+    done();
+  }
+
 } );
 
 //
-let port = 8400;
+let port = 8100;
 app.listen( port, ()=>{
   console.log("Cryptographix submit server listening on port %d in %s mode", port, app.settings.env );
 } );

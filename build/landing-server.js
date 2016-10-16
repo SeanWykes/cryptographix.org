@@ -1,5 +1,5 @@
 "use strict";
-var fs = require('fs');
+var fs = require("fs");
 var express = require("express");
 var bodyParser = require("body-parser");
 var errorHandler = require("errorhandler");
@@ -15,8 +15,9 @@ if (env == 'development') {
     console.log('Request Logging enabled');
 }
 app.use(express.static(__dirname + '/../public'));
+console.log(__dirname + '/../public');
 app.get('/', function (req, resp, done) {
-    resp.redirect('/public/landing.html');
+    resp.redirect('/landing.html');
 });
 var trackerPNG = fs.readFileSync('public/static/images/1x1.png');
 app.get('/tracker/1x1/:id', function (req, resp, done) {
@@ -90,19 +91,25 @@ app.post('/api/subscribe', function (req, resp, done) {
         type: escapeFormField(req.body.type),
         id: cuid()
     };
-    fs.appendFile('subscribers.txt', JSON.stringify(info) + ',\n', function (err) {
-        sendMail("", info, function (err) {
-            if (!err) {
-                resp.status(200).json({ success: "Email sent" });
-            }
-            else {
-                resp.status(500).json({ message: "Unable to send email:", error: err });
-            }
-            done();
+    if (req.get('Authorization') == 'Bearer ' + 'ZTBUqwQTokTXRhOJcNQN6UCy4ZJ/rwqyueLU5lELqMY=') {
+        fs.appendFile('subscribers.txt', JSON.stringify(info) + ',\n', function (err) {
+            sendMail("", info, function (err) {
+                if (!err) {
+                    resp.status(200).json({ success: "Email sent" });
+                }
+                else {
+                    resp.status(500).json({ message: "Unable to send email:", error: err });
+                }
+                done();
+            });
         });
-    });
+    }
+    else {
+        resp.status(401).json({ message: "Unable to authorize" });
+        done();
+    }
 });
-var port = 8400;
+var port = 8100;
 app.listen(port, function () {
     console.log("Cryptographix submit server listening on port %d in %s mode", port, app.settings.env);
 });

@@ -1,6 +1,6 @@
 {
   "subscribe": {
-    "from": "\"Criptografia Essencial\" <subscribe@cryptographix.org>",
+    "from": "\"Cryptographix\" <subscribe@cryptographix.org>",
     "transport": "SMTP",
     "options": {
       "host": "email-smtp.us-east-1.amazonaws.com",
