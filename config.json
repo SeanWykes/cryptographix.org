@@ -1,0 +1,15 @@
+{
+  "subscribe": {
+    "from": "\"Criptografia Essencial\" <subscribe@cryptographix.org>",
+    "transport": "SMTP",
+    "options": {
+      "host": "email-smtp.us-east-1.amazonaws.com",
+      "port": 465,
+      "service": "SES",
+      "auth": {
+        "user": "AKIAJRHT7HACKS3DYOOQ",
+        "pass": "Au48Cgmbt03f2en0xn/ZaL9xlC/z0xIr4buSnBTBoIwq"
+      }
+    }
+  }
+}
