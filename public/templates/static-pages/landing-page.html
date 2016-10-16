@@ -467,10 +467,10 @@ for( var i = 1; i < 13; ++i ) {
         $('#signup-success').removeClass('is-hidden');
       })
       .error(function( err ) {
-        $('#signup button')
+        $('#signup-form button')
           .css('background-color', '#A00')
           .css('color','white')
-          .text('Tente Novamente');
+          .text('Try Again');
       });
     })
   })
