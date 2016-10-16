@@ -346,14 +346,58 @@
   color: #585e5c;
   font-size: 110%;
 }
+
+
+
+
+.sprite {
+  position: absolute;
+  animation: glitter 3s linear 0s forwards;
+  width: 48px;
+  height: 48px;
+  opacity: 0;
+}
+.sprite .letter {
+  position: absolute;
+  top: 0px; left: 0px;
+  z-index: 15;
+  background: url(static/images/logo/letters_blue_cryptographix.png);
+  width: 48px;
+  height: 48px;
+}
+.sprite .twinkle {
+  position: absolute;
+  top: 0px; left: 0px;
+  z-index: 20;
+  background: url(static/images/logo/letters_shine_cryptographix.png);
+  width: 48px;
+  height: 48px;
+  animation: twinkle 0.5s linear 0s infinite normal;
+}
+
+@keyframes twinkle {
+  0%,100% { opacity: 0 }
+  50% { opacity: 0.3 }
+}
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
+}
+@keyframes glitter {
+ 0%    { transform: scale(0.5); opacity: 0; }
+ 50%   { transform: scale(1.0); opacity: 1; }
+ 100%  { transform: scale(0.5); opacity: 0; }
+}
+
 </style>
 
 <div class="content-area landing-page" onclick="next()">
   <section class="section-1">
     <div id="cover-sprites">
-      <div style="background: url(&apos;static/images/logo/A_texture.png&apos;); position: absolute; width: 48px; height: 48px; top: 96px; left: 96px;">&#xA0;</div>
-      <div style="background: url(&apos;static/images/logo/B_texture.png&apos;); position: absolute; width: 48px; height: 48px; top: 96px; left: 960px;">&#xA0;</div>
-      <div style="background: url(&apos;static/images/logo/C_texture.png&apos;); position: absolute; width: 48px; height: 48px; top: 480px; left: 640px;">&#xA0;</div>
+      <div class="sprite" style="top: 96px; left: 96px;">
+        <div class="letter"></div>
+        <div class="twinkle"></div>
+      </div>
     </div>
     <div class="bk-layer"></div>
     <div class="row full-height content-layer">
@@ -401,7 +445,7 @@
         </a>
       </div>
       <div class="row" style="height: 16rem!;">
-        <a class="medium-4 medium-offset-2 column" xhref="/laboratory">
+        <a class="medium-4 medium-offset-1 column" xhref="/laboratory">
           <img class="topic-image" src="/static/images/sections/laboratory/icon_laboratory_soon.png">
           <span class="topic-title text-cgx-med-blue">CRYPTO<b style="font-weight:900;">LAB</b></span>
           <span class="topic-detail">Online tools to create, test, debug, inspect and visualize security and
@@ -410,7 +454,7 @@
           <br>
           <!--span><button type="submit" class="button bg-cgx-med-blue text-larger" style="color: white; padding-left: 60px; padding-right: 60px; text-transform: uppercase; border-radius: 5px;">Experiment</button></span-->
         </a>
-        <a class="medium-4 column end" xhref="/library">
+        <a class="medium-4 medium-push-2 column end" xhref="/library">
           <img class="topic-image" src="/static/images/sections/library/icon_library_soon.png">
           <span class="topic-title text-cgx-rose">CRYPTO<b style="font-weight:900;">LIBRARY</b></span>
           <span class="topic-detail">Browse our knowledge-base, crypto-dictionary, articles, books, videos, links,
@@ -503,35 +547,43 @@
 </div>
 
 <script>
-  var el = $('#cover-sprites div');
-  var sp = el; // .children(0);
+function randInt( range ) {
+  return Math.trunc( Math.random() * range );
+}
 
-  var faded = false;
-  function next() {
-    if ( faded )
-    {
-      faded = false;
-      sp.fadeOut( 2000, next );
-    }
-    else
-    {
-      jQuery.each( sp, function( inx ) {
-        var spr = sp[ inx ];
-        var x = Math.trunc( ( Math.random() * (window.innerWidth - 64 )) / 16 ) * 16 + 16;
-        var y = Math.trunc( ( Math.random() * (window.innerHeight - 64 )) / 16 ) * 16 + 16;
-        $(spr).css( 'left', x + "px").css( 'top', y + "px");
-      });
+// sprite container element
+var sprites = $('#cover-sprites');
 
-      faded = true;
-      sp.fadeIn( 2000, next );
-    }
-/*    var top = parseInt( sp.css('top') );
+// get our template sprite and remove it from DOM
+var sprite = sprites.find('.sprite').first()
+sprite.remove();
 
-    sp.css('top', (top + 1) + "px" );
-    setTimeout( "next()", 1 );*/
-  }
+function newSprite( ) {
+  var spr = sprite.clone();
 
-  next();
+  // random letter or number
+  spr.children().css( 'background-position', (48 * randInt( 36 ) ) + 'px 0px');
+
+  // random position
+  var x = 16 * (1 + randInt( ( window.innerWidth - 64 ) / 16 ) );
+  var y = 16 * (1 + randInt( ( window.innerHeight - 64 ) / 16 ) );
+  spr.css( 'left', x + "px").css( 'top', y + "px");
+
+  // display it
+  spr.appendTo( sprites );
+
+  // kill and recreate after random timeout
+  setTimeout( function faded() {
+      spr.remove();
+      newSprite();
+    },
+    500 + randInt( 3000 ) );
+}
+
+// create our set of sprites
+for( var i = 1; i < 13; ++i ) {
+  setTimeout( newSprite, 500 + randInt( 3000 ) );
+}
 </script>
 
 <subscribe-section></subscribe-section>
