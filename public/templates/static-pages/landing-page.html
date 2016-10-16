@@ -1,60 +1,19 @@
 <template>
 <require from="../subscribe" as="subscribe-section"></require>
 <style>
-.landing-page .section-1 {
-    height: 42rem;
+#hero-section {
+    min-height: 42rem;
+    height: calc(100% - 50px);
     background: url(static/images/logo/texture_home.png) #060635 repeat;
-    #background-size: cover;
     position: relative;
 }
 
-.landing-page .section-1 .bk-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0,0,0,.3);
-    z-index: 10;
-}
-
-.full-height {
-    height: 100%;
-}
-
-.landing-page .section-1 .content-layer {
+#hero-section .cover-logo {
     position: relative;
     z-index: 20;
 }
 
-.landing-page .section-1 .content-wrapper {
-    height: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-}
-
-.landing-page .section-1 .content-wrapper .text-container {
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
-    width: 80%;
-    margin: auto;
-    text-align: center;
-}
-
-.landing-page .section-1 .content-wrapper .text-container h2 {
-    font-size: 2.5rem;
-    color: #FFF;
-    margin: 0;
-    line-height: normal;
-}
-.landing-page .section-1 .overlay-layer {
+#landing-page .section-1 .overlay-layer {
     position: absolute;
     top: calc(100vh - 4rem - 5rem);
     left: 0;
@@ -64,39 +23,65 @@
     z-index: 30;
 }
 
-.landing-page .section-2 {
+#intro-section {
     background: #F1F2F2;
-    background-size: cover;
     position: relative;
     padding: 6rem 1.5rem;
 }
 
-.landing-page .section-2 .secondary-title {
+#intro-welcome {
+  padding-bottom: 3rem;
+}
+
+#intro-section .secondary-title {
   font-size: 3.25rem;
   color: #455A64;
   margin: 1.5rem 0;
   line-height: normal;
   text-align: center;
-  font-weight: 100;/*light*/
+  font-weight: bold;
 }
 
-.landing-page .section-2 .about-section p {
-  margin: 0.75rem 0;
-  font-size: 1rem;
+#intro-section h5 {
+  color: #585e5c;
+  text-align: center;
 }
 
-.landing-page .section-2 p {
+#intro-section span {
+  display: block;
+  text-align: center;
   color: #3585e5c;
 }
 
-.landing-page .section-3 {
-    background: #F1F2F2;
-    background-size: cover;
-    position: relative;
-    padding: 6rem 1.5rem;
+#feature-panel {
 }
 
-.landing-page .section-3 .secondary-title {
+#feature-panel .feature-item {
+  min-height: 18.75rem;
+}
+
+#feature-panel .feature-image {
+  display: block;
+  margin: auto;
+  width: 112px;
+}
+#feature-panel .feature-title {
+  font-size: 1.5rem;
+}
+#feature-panel .feature-detail {
+  color: #585e5c;
+  font-size: 110%;
+}
+
+/* Topics */
+#topics-section {
+  background: #F1F2F2;
+  background-color: #ddd;
+  position: relative;
+  padding: 6rem 1.5rem;
+}
+
+#topics-section .secondary-title {
   font-size: 3.25rem;
   color: #4150a0;
   margin: 1.5rem 0;
@@ -105,46 +90,69 @@
   font-weight: 100;/*light*/
 }
 
-.landing-page .section-3 p {
+#topics-section p {
   color: #3585e5c;
 }
-.section-3 span {
+#topics-section span {
   display: block;
   text-align: center;
   color: #3585e5c;
 }
-.section-3 .topic-image {
+#topics-section .topic-image {
   display: block;
   margin: auto;
   padding: 1.5rem;
 }
-.section-3 .topic-title {
+#topics-section .topic-title {
   font-size: .875rem;
 }
-.section-3 .topic-detail {
+#topics-section .topic-detail {
   font-size: .8125rem;
 }
 
-.section-2 span {
-  display: block;
-  text-align: center;
-  color: #3585e5c;
-}
-.section-2 .topic-image {
-  display: block;
-  margin: auto;
-  padding: 1.5rem;
-}
-.section-2 .topic-title {
-  font-size: 2rem;
-}
-.section-2 .topic-detail {
-  font-size: .8125rem;
-  color: #585e5c;
-  font-size: 110%;
-}
+#signup-section {
+  min-height: 415px;
+  background: #41509d;
+  color: #ffffff; }
+  #signup-section header {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  #signup-section .content {
+    padding-bottom: 40px;
+  }
 
+  #signup-section input, #signup-section button {
+    height: 50px;
 
+    background: #fff;
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1rem;
+  }
+  #signup-section input[type="text"] {
+    border-right: #ddd 1px solid;
+    border-radius: 3px 0 0 3px;
+  }
+  #signup-section input[type="email"] {
+  }
+  #signup-section button {
+    background: #e2e2e2;
+    border-radius: 0 3px 3px 0;
+    color: #333;
+    font-weight: bold;
+  }
+  #signup-section button:hover {
+    background: #d7d7d7
+  }
+
+  @media only screen and (max-width: 767px) {
+    #signup-section button {
+        border-radius:3px
+    }
+  }
 
 
 .sprite {
@@ -185,26 +193,20 @@
  50%   { transform: scale(1.0); opacity: 1; }
  100%  { transform: scale(0.5); opacity: 0; }
 }
-
 </style>
 
-<div class="content-area landing-page" onclick="next()">
-  <section class="section-1">
+<div id="landing-page" class="content-area ">
+  <section id="hero-section">
     <div id="cover-sprites">
       <div class='sprite' style="top: 96px; left: 96px;">
         <div class="letter"></div>
         <div class="twinkle"></div>
       </div>
     </div>
-    <div class="bk-layer"></div>
-    <div class="row full-height content-layer">
-      <div class="small-12 full-height column">
-        <div class="content-wrapper">
-          <div class="row text-container">
-            <img src="static/images/logo/logo_home.png">
-            <br/>
-          </div>
-        </div>
+    <div class="row" style="height: calc(50vh - 50px - 170px/2);">&nbsp;</div>
+    <div class="row">
+      <div class="cover-logo text-center">
+        <img src="static/images/logo/logo_home.png">
       </div>
     </div>
     <!--div class="overlay-layer row" style="">
@@ -214,59 +216,65 @@
     </div-->
   </section>
 
-  <section class="section-2">
-    <div class="row">
-      <div class="medium-8 medium-offset-2 small-12 column">
-        <h2 class="secondary-title" style="font-weight: bold">Welcome to CryptoGraphix</h2>
+  <section id="intro-section">
+    <div id="intro-welcome" class="row">
+      <div class="medium-8 medium-centered small-12 column">
+        <h2 class="secondary-title">Welcome to <em>CryptoGraphix</em></h2>
         <h3 class="text-center"><em>Our mission</em> &dash; to inform and educate application designers and developers about
           secure application development techniques and cryptographic technologies</h3>
         <hr class="divider">
-        <p class="text-larger">We're building Cryptographix to be a <em>hub</em> for developers and engineers
-          who care about application security &dash; front-end, back-end, mobile or embedded.
-        </p>
-        <p class="text-larger">Our focus is helping you to build more secure products and systems, so whether you're just curious, taking your first steps in application security, actively design and develop applications
-          or are a seasoned profissional, we aim to have something for everyone: Take a look at what we are planning:
-        </p>
+        <h5 class="text-center">We're building Cryptographix to be a <em>hub</em> for developers and engineers
+          who care about application security &dash; front-end, back-end, mobile, web, cloud or embedded.
+        </h5>
+        <h5 class="text-center">Our focus is helping you to build more secure products and systems,
+          so whether you're just taking your first steps in application security or are a seasoned
+          profissional actively designing and developing applications, we're sure to have something
+          to interest you:<br/>
+        </h5>
+        <hr class="divider">
+        <h4 class="text-center">
+          Take a look at some of the things we're preparing</h4>
       </div>
     </div>
-    <div class="row full-height">
-      <div class="row" style="height: 16rem !important;" xhref="/explore">
-        <a class="medium-4 medium-offset-4 column">
-          <img class="topic-image" src="/static/images/sections/explore/icon_explore_soon.png"></img>
-          <span class="topic-title text-cgx-mustard">CRYPTO<b style="font-weight:900;">EXPLORE</b></span>
-          <span class="topic-detail">Explore a world of information, articles and writeups,
-            links, questions &amp; answers, ideas, problems and solutions.
+
+    <div id="feature-panel" class="row column medium-11 medium-centered">
+      <div class="row collapse" xhref="/explore">
+        <a class="medium-4 medium-offset-4 column feature-item">
+          <img class="feature-image" src="/static/images/sections/explore/icon_explore_soon.png"></img>
+          <span class="feature-title text-cgx-mustard">CRYPTO<b style="font-weight:900;">EXPLORE</b></span>
+          <span class="feature-detail">Explore a world of information, articles and writeups,
+            links, Q&amp;A, ideas, problems and solutions.
             Interact with experts and peers from the Cryptographix community</span>
           <br/>
           <!--span><button type="submit" class="button bg-cgx-mustard text-larger" style="color: white; padding-left: 60px; padding-right: 60px; text-transform: uppercase; border-radius: 5px;">Explore</button></span-->
         </a>
       </div>
-      <div class="row" style="height: 16rem!;">
-        <a class="medium-4 medium-offset-1 column" xhref="/laboratory">
-          <img class="topic-image" src="/static/images/sections/laboratory/icon_laboratory_soon.png"></img>
-          <span class="topic-title text-cgx-med-blue">CRYPTO<b style="font-weight:900;">LAB</b></span>
-          <span class="topic-detail">Online tools to create, test, debug, inspect and visualize
+      <div class="row collapse">
+        <a class="medium-4 column feature-item" xhref="/laboratory">
+          <img class="feature-image" src="/static/images/sections/laboratory/icon_laboratory_soon.png"></img>
+          <span class="feature-title text-cgx-med-blue">CRYPTO<b style="font-weight:900;">LAB</b></span>
+          <span class="feature-detail">Online tools to generate, test, inspect and visualize
             security and cryptographic-related data.
-            Experiment with cards, tokens, cryptograms, keys, certificates, transactions, and much much more</span>
+            Cards, cryptograms, keys, certificates, signatures, transactions, ...</span>
           <br/>
           <!--span><button type="submit" class="button bg-cgx-med-blue text-larger" style="color: white; padding-left: 60px; padding-right: 60px; text-transform: uppercase; border-radius: 5px;">Experiment</button></span-->
         </a>
-        <a class="medium-4 medium-push-2 column end" xhref="/library">
-          <img class="topic-image" src="/static/images/sections/library/icon_library_soon.png"></img>
-          <span class="topic-title text-cgx-rose">CRYPTO<b style="font-weight:900;">LIBRARY</b></span>
-          <span class="topic-detail">Browse our knowledge-base, crypto-dictionary, articles, books,
-            videos, links, tutorials, lessons and a lot more.
-            Search, filter and organize results by skill-level, topic or keyword</span>
+        <a class="medium-4 column feature-item" xhref="/library">
+          <img class="feature-image" src="/static/images/sections/library/icon_library_soon.png"></img>
+          <span class="feature-title text-cgx-rose">CRYPTO<b style="font-weight:900;">LIBRARY</b></span>
+          <span class="feature-detail">Search or browse our knowledge-base, crypto-dictionary, articles, books,
+            videos, projects and a lot more.
+            Filter and organize results by skill-level, topic or keyword</span>
           <br/>
           <!--span><button type="submit" class="button bg-cgx-rose text-larger" style="color: white; padding-left: 60px; padding-right: 60px; text-transform: uppercase; border-radius: 5px;">Search</button></span-->
         </a>
       </div>
-      <div class="row" style="height: 16rem!;">
-        <a class="medium-4 medium-offset-4 column" xhref="/school">
-          <img class="topic-image" src="/static/images/sections/school/icon_school_soon.png"></img>
-          <span class="topic-title text-cgx-light-blue">CRYPTO<b style="font-weight:900;">SCHOOL</b></span>
-          <span class="topic-detail">Learn new skills or improve with our tutorials and online courses.
-            With a focus on practical knowledge and best practices, you'll soon be designing,
+      <div class="row collapse">
+        <a class="medium-4 medium-offset-4 column feature-item" xhref="/school">
+          <img class="feature-image" src="/static/images/sections/school/icon_school_soon.png"></img>
+          <span class="feature-title text-cgx-light-blue">CRYPTO<b style="font-weight:900;">SCHOOL</b></span>
+          <span class="feature-detail">Learn new skills with our tutorials and online courses.
+            By focussing on practical knowledge, we'll get you up to speed designing,
             developing and testing secure applications.</span>
           <br/>
           <!--span><button type="submit" class="button bg-cgx-light-blue text-larger" style="color: white; padding-left: 60px; padding-right: 60px; text-transform: uppercase; border-radius: 5px;">Learn</button></span-->
@@ -275,10 +283,10 @@
     </div>
   </section>
 
-  <section class="section-3" style="background-color: #ddd;">
+  <section id="topics-section">
     <div class="row">
-      <div class="medium-8 medium-offset-2 small-12 column">
-        <h2 class="secondary-title">Here's a few of the topics we'll be covering</h2>
+      <div class="medium-6 medium-centered small-12 column">
+        <h2 class="secondary-title">Here's some of the topics we'll be covering</h2>
         <!--p style="text-align: center;">Just click on one</p-->
       </div>
     </div>
@@ -341,6 +349,53 @@
       </div>
     </div>
   </section>
+
+  <section id="signup-section" style="min-height: 400px">
+    <header class="row column medium-8 medium-centered">
+      <div id="signup-callout">
+        <div class="text-center">
+          <h4>We're working hard behind the scenes, preparing for our offical launch.</h4>
+          <h5>If you like the idea behind CryptoGraphix, why not leave your name and email, and we'll let to know when we
+            go live.</h5>
+        </div>
+      </div>
+
+      <div id="signup-success" class="is-hidden">
+        <div class="text-center">
+          <h2>Thank you.</h2>
+          <h5>You'll shortly receive a confirmation email in your INBOX.</h5>
+        </div>
+      </div>
+    </header>
+
+    <div class="row content column large-10 centered">
+      <form id="signup-form" accept-charset="UTF-8">
+        <div class="is-hidden">
+          <input name="utf8" type="hidden" value="✓">
+          <input name="authToken" type="hidden" value="ZTBUqwQTokTXRhOJcNQN6UCy4ZJ/rwqyueLU5lELqMY=">
+        </div>
+        <div class="row large-collapse">
+          <div class="column large-4 large-offset-1">
+            <input type="text" placeholder="Your name" name="name" style="cursor: pointer; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;); background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; background-repeat: no-repeat;">
+          </div>
+          <div class="column large-4 float-left">
+            <input type="email" placeholder="Your Email" name="email">
+          </div>
+          <div class="column large-2 float-left">
+            <button type="submit" class="button expanded">Submit</button>
+          </div>
+        </div>
+      </form>
+
+      <br/>
+
+      <div class="row">
+        <small class="column large-10 large-offset-1 text-center">
+          By clicking SUBMIT, you agree to receive email communication and updates about the Cryptographix portal.<br/>
+          NO SPAM - We respect your privacy.</small>
+      </div>
+    </div>
+  </section>
 </div>
 
 <script>
@@ -383,6 +438,41 @@ for( var i = 1; i < 13; ++i ) {
 }
 </script>
 
+<script>
+  var authToken;
+
+  $( function() {
+    if ( !authToken )
+      authToken = $('#signup-form input[name=authToken]').val();
+
+    $('#signup-form').submit( function( e ) {
+      e.preventDefault();
+      $.ajax( '/api/subscribe', {
+        method: 'POST',
+        dataType: 'json',
+        data: {
+          name: $('#signup-form input[name=name]').val(),
+          email: $('#signup-form input[name=email]').val(),
+          origin: 'ec-hotsite',
+          lang: 'pt',
+          type: 'book-sample-request'
+        },
+        headers: { "Authorization": "Bearer " + authToken },
+      })
+      .done(function( data ) {
+        $('#signup-form').hide();
+        $('#signup-callout').hide();
+        $('#signup-success').removeClass('is-hidden');
+      })
+      .error(function( err ) {
+        $('#signup button')
+          .css('background-color', '#A00')
+          .css('color','white')
+          .text('Tente Novamente');
+      });
+    })
+  })
+</script>
 <subscribe-section></subscribe-section>
 
 </template>
