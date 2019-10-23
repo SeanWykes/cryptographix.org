@@ -17,7 +17,7 @@
     "express-logging": "^1.1.1",
     "logops": "^1.0.7",
     "method-override": "^2.3.5",
-    "mongodb": "^2.1.18",
+    "mongodb": "^3.1.13",
     "morgan": "^1.7.0",
     "nodemailer": "^2.6.4",
     "rethinkdb": "^2.3.1",
