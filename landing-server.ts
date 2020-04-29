@@ -1,6 +1,6 @@
 import * as fs from 'fs';
-import * as http from "http";
-import * as url from "url";
+//import * as http from "http";
+//import * as url from "url";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import errorHandler = require("errorhandler");
@@ -27,21 +27,21 @@ if ( env == 'development' ) {
 app.use( express.static(__dirname + '/../public') );
 console.log( __dirname + '/../public' );
 
-app.get( '/',  (req, resp, done) => {
+app.get( '/',  (_req, resp, _done) => {
   resp.redirect( '/landing.html' );
 } );
 
 let trackerPNG = fs.readFileSync('public/static/images/1x1.png' );
 app.get( '/tracker/1x1/:id', (req, resp, done) => {
-  fs.appendFile('tracked.txt', req.params.id+',\n', function (err) {
+  fs.appendFile('tracked.txt', req.params.id+',\n', function (_err) {
     resp.writeHead(200, {'Content-Type': 'image/png' } );
     resp.end( trackerPNG );
     done();
   } );
 } );
 
-app.get( '/subscribe/confirm/:id', (req, resp, done) => {
-  fs.appendFile('confirmed.txt', req.params.id+',\n', function (err) {
+app.get( '/subscribe/confirm/:id', (req, _resp, done) => {
+  fs.appendFile('confirmed.txt', req.params.id+',\n', function (_err) {
     //if ( !err )
 
 //    resp.redirect('https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F3775%2F1471523880E-sample-Wykes_Criptografia_Essencial_1ed.pdf');
@@ -128,7 +128,7 @@ app.post( '/api/subscribe', (req, resp, done) => {
   };
 
   if ( req.get('Authorization') == 'Bearer ' + 'ZTBUqwQTokTXRhOJcNQN6UCy4ZJ/rwqyueLU5lELqMY=' ) {
-    fs.appendFile('subscribers.txt', JSON.stringify( info )+',\n', function (err) {
+    fs.appendFile('subscribers.txt', JSON.stringify( info )+',\n', function (_err) {
       sendMail( "", info, (err) => {
         if ( !err ) {
           resp.status(200).json({success: "Email sent"});
@@ -139,7 +139,7 @@ app.post( '/api/subscribe', (req, resp, done) => {
         done();
       } )
     });
-  } 
+  }
   else {
     resp.status(401).json({message: "Unable to authorize"});
     done();
